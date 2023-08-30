@@ -1,0 +1,15 @@
+<h2>Por Capital</h2>
+
+<hr />
+
+<div class="row">
+  <div class="col">
+    <shared-search-box
+      [initialValue]="cacheInput"
+      (onDebounce)="search($event)"
+      placeholder="Search by capital..."
+    />
+  </div>
+
+  <countries-list [loadSpinner]="isLoading" [countries]="countries" />
+</div>

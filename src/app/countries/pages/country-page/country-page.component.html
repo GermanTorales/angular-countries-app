@@ -1,0 +1,74 @@
+<ng-template #loading>
+  <div class="alert alert-info">Buscando informacion...</div>
+</ng-template>
+
+<div *ngIf="country; else loading">
+  <div class="row">
+    <div class="col-12">
+      <h2>
+        Pais: <strong>{{ country.name.common }}</strong>
+      </h2>
+      <hr />
+    </div>
+
+    <div class="row">
+      <div class="col-4">
+        <h3>Bandera</h3>
+        <img
+          [src]="country.flags.svg"
+          [alt]="country.name.common"
+          class="img-thumbnail"
+        />
+      </div>
+
+      <div class="col">
+        <h3>Informacion</h3>
+
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>Capital:</strong> {{ country.capital[0] }}
+          </li>
+
+          <li class="list-group-item">
+            <strong>Poblacion:</strong> {{ country.population | number }}
+          </li>
+
+          <li class="list-group-item">
+            <strong>Region:</strong> {{ country.region }}
+          </li>
+
+          <li class="list-group-item">
+            <strong>Sub Region:</strong> {{ country.subregion }}
+          </li>
+
+          <li class="list-group-item">
+            <strong>Codigo:</strong> {{ country.cca3 }}
+          </li>
+
+          <li class="list-group-item">
+            <strong>Latitud:</strong> {{ country.latlng[0] }}
+          </li>
+
+          <li class="list-group-item">
+            <strong>Longitud:</strong> {{ country.latlng[1] }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col">
+      <h3>Traducciones</h3>
+
+      <div class="d-flex flex-wrap">
+        <div
+          *ngFor="let translation of CountryTranslations"
+          class="badge bg-primary m-1"
+        >
+          {{ translation[0] | uppercase }}: {{ translation[1] }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

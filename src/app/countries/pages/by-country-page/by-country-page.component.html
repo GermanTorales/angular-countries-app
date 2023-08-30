@@ -1,0 +1,16 @@
+<h2>Por Pais</h2>
+
+<hr />
+
+<div class="row">
+  <div class="col">
+    <!-- Search box -->
+    <shared-search-box
+      [initialValue]="cacheInput"
+      (onDebounce)="search($event)"
+      placeholder="Search by country..."
+    />
+  </div>
+
+  <countries-list [loadSpinner]="isLoading" [countries]="countries" />
+</div>
